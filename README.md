@@ -41,3 +41,4 @@ When you're finished with the development to run the app with Docker to the foll
 > docker compose up --build --detach
 4. Go to `http://localhost`
 5. If you are getting the error 502 restart the nginx container, first check if app container is fully loaded
+6. While in prod the project IS NOT binded, so every change (for example forgot to run the app key generation) you need to rebuild the containers
