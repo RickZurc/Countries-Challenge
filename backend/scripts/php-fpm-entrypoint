@@ -11,6 +11,7 @@ main() {
         wait_for_db
         run_migrations
         optimize_app
+        run_generate_key
         run_server "$@"
     fi
 }
@@ -67,6 +68,10 @@ run_scheduler() {
     ./artisan schedule:work
 }
 
+run_generate_key() {
+        echo "Generating application key"
+        php artisan key:generate
+}
 
 
 run_server() {
