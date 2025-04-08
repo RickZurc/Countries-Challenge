@@ -10,6 +10,7 @@ main() {
         wait_for_db
         run_migrations
         optimize_app
+        run_scheduler
         run_server "$@"
     fi
 }
@@ -62,7 +63,8 @@ optimize_app() {
 }
 
 run_scheduler() {
-    ./artisan schedule:run
+    ./artisan schedule:run >> /dev/null 2>&1
+    ./artisan schedule:work
 }
 
 
